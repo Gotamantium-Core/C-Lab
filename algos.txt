@@ -1,0 +1,336 @@
+RESULT: The program was executed and output verified
+
+Algorithm 1
+
+Step 1: Start
+Step 2: READ  a, b, c
+Step 3: let D = b * b - 4 * a * c
+Step 4: if D > 0 then go to step 7
+Step 5: else if D = 0 then go to step 12	
+Step 6: else go to step 16   
+    Step 7: PRINT Roots are real and distinct
+    Step 8: SET r1 = ( - b + sqrt ( D ) ) / ( 2.0 * a )
+    Step 9: SET r2 = ( - b - sqrt ( D ) ) / ( 2.0 * a )
+    Step 10: PRINT % .1f " , r1 , r2
+    Step 11: Go to step 22
+    Step 12: PRINT Roots are real and equal
+    Step 13: SET root = - b / ( 2.0 * a )
+    Step 14: PRINT root
+    Step 15: Go to step 22
+    Step 16: PRINT Roots are complex \ n
+    Step 17: SET re = - b / ( 2.0 * a )
+    Step 18: SET im1 = sqrt ( - D ) / ( 2.0 * a )
+    Step 19: SET im2 = - sqrt ( - D ) / ( 2.0 * a )
+    Step 20: PRINT re + i(im1), re + i(im2)
+Step 21: Stop
+
+
+Program 1
+
+/*Roots of quadratic equation, Exp 1 
+  Woitiwe Simson, S2 CSE, 70 
+  5-2-25*/
+#include <stdio.h>
+#include <math.h>
+
+void main() {
+    int a, b, c, D;
+    printf("Enter a, b, c: ");
+    scanf("%d %d %d", &a, &b, &c);
+    D = b*b - 4*a*c;
+    if (D > 0) {
+        printf("Roots are real and distinct\n");
+        float r1, r2;
+        r1 = (-b + sqrt(D)) / (2.0*a);
+        r2 = (-b - sqrt(D)) / (2.0*a);
+        printf("Roots: %.1f, %.1f", r1, r2);
+    } else if (D == 0) {
+        printf("Roots are real and equal\n");
+        float root;
+        root = -b / (2.0 * a);
+        printf("Root: %.1f", root);
+    } else {
+        printf("Roots are complex\n");
+        float re, im1, im2;
+        re = -b/(2.0 * a);
+        im1 = sqrt(-D) / (2.0 * a);
+        im2 = -sqrt(-D) / (2.0 * a);
+        printf("Roots: %.1f + %.1fi, %.1f + %.1fi", re, im1, re, im2);
+    }
+}
+
+
+Algorithm 2
+
+1. Start
+2. Read dd, mm, yyyy
+3. Initialize valid=1, leap=0, daysInMonth=0
+4. if yyyy is less than 1 or greater than 9999, set valid=0
+5. if mm is less than 1 or greater than 12, set valid=0
+6. check if yyyy is divisible by 4, if not move to step 9
+7. check if yyyy is divisible by 100, if not set leap=1 and move to step 9
+8. check if yyyy is divisible by 400, if yes, set leap=1
+9. determine daysInMonth from mm
+10. if mm is 1, 3, 5, 7, 8, 10, or 12, daysInMonth=31
+11. if mm is 4, 6, 9, or 11, daysInMonth=30
+12. if mm is 2 and leap=1, daysInMonth=29. if leap=0, daysInMonth=28
+13. if dd is less than 1 or greater than daysInMonth, set valid=0
+14. if valid=1, PRINT "date is valid"
+15. otherwise, PRINT "date is invalid"
+16. Stop
+
+
+Program 2
+
+/*Valid Input Date, Exp 2 
+  Woitiwe Simson, S2 CSE, 70 
+  5-2-25*/
+#include <stdio.h>
+
+void main() {
+    int dd, mm, yyyy;
+    int valid=1, leap=0;
+    printf("Enter date (dd/mm/yyyy): ");
+    scanf("%d/%d/%d", &dd, &mm, &yyyy);
+    int dim=0;
+    if (yyyy < 1 || yyyy > 9999) {
+        valid = 0;
+    }
+    if (mm < 1 || mm > 12) {
+        valid = 0;
+    }
+    if ((yyyy%4 == 0 && yyyy%100 != 0) || (yyyy%400 ==0)) {
+        leap = 1;
+    }
+    switch (mm) {
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+            dim = 31;
+            break;
+        case 4: case 6: case 9: case 11:
+            dim = 30;
+            break;
+        case 2:
+            dim = (leap) ? 29 : 28;
+            break;
+    }
+    if (dd > dim || dd < 1) {
+        valid = 0;
+    }
+    if (valid) {
+        printf("Date (%d/%d/%d) is valid\n", dd, mm, yyyy);
+    } else {
+        printf("Date (%d/%d/%d) is invalid\n", dd, mm, yyyy);
+    }
+}
+
+
+Algorithm 3
+
+1. Start
+2. READ a, b;
+3. Let temp_a=a and temp_b=b 
+4. if temp_b is 0, go to step 9
+5. let temp = temp_b
+6. temp_b = remainder of temp_a / temp_b
+7. temp_a = temp
+8. go to step 4
+9. let GCD = a;
+10. LCM = (a*b) / GCD
+11. PRINT "GCD is ", GCD
+12. PRINT "LCM is ", LCM
+13. Stop
+
+
+Program 3
+
+/*GCD And LCM, Exp 3 
+  Woitiwe Simson, S2 CSE, 70 
+  5-2-25*/
+#include <stdio.h>
+
+void main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    int tempa = a, tempb = b;
+    while (tempb != 0) {
+        int temp = tempb;
+        tempb = tempa%tempb;
+        tempa = temp;
+    }
+    int gcd = tempa;
+    int lcm = (int) (a*b) / gcd;
+    printf("For %d and %d: \nGCD: %d\nLCM: %d\n", ta, tb, gcd, lcm);
+}
+
+
+Algorithm 4
+
+1. Start
+2. READ N 
+3. READ num1
+4. Initialize max=num1, min=num1, i=0 
+5. if i >= N, go to step 10
+6. READ nextNumber
+7. if max is less than nextNumber, set max=nextNumber
+8. if min is greater than nextNumber, set min=nextNumber
+9. Increment i by 1 and go to step 5
+10. PRINT min, max;
+11. Stop
+
+Program 4
+
+/*Min And Max Of N Numbers, Exp 4 
+  Woitiwe Simson, S2 CSE, 70 
+  5-2-25*/
+#include <stdio.h>
+
+void main() {
+    int N, n1;
+    printf("Enter number of numbers: ");
+    scanf("%d", &N);
+    printf("Enter number 1: ");
+    scanf("%d", &n1);
+    int min=n1;
+    int max=n1;
+    for (int i=1; i < N; i++) {
+        int num;
+        printf("Enter number %d: ", i+1);
+        scanf("%d", &num);
+        if (max < num) {
+            max = num;
+        }
+        if (min > num) {
+            min = num;
+        }
+    }
+    printf("\nMin: %d \nMax: %d\n", min, max);
+}
+
+
+
+Algorithm 5
+
+1. Start 
+2. READ bin
+3. Initialize dec=0, base=1, and temp=bin
+4. if temp <= 0, go to step 10
+5. let last = remainder of temp / 10
+6. if last > 1, go to step 12
+7. dec = dec + last * base
+8. temp = temp / 10
+9. base = base * 2
+10. go to step 4
+11. PRINT dec, go to step 12
+12. PRINT Invalid binary number
+13. Stop
+
+Program 5
+
+/*Binary To Decimal, Exp 5 
+  Woitiwe Simson, S2 CSE, 70 
+  5-2-25*/
+#include <stdio.h>
+
+void main() {
+    int bin; 
+    int dec=0, base=1;
+    printf("Enter binary: ");
+    scanf("%d", &bin);
+    int temp = bin;
+    while (temp > 0) {
+        int last = temp%10;
+        dec += last * base;
+        temp /= 10;
+        base *= 2;
+    }
+    printf("%d in decimal: %d", bin, dec);
+}
+
+
+Algorithm 6
+
+1. Start
+2. READ N 
+3. Initialize i=1;
+4. if i >= N, go to step 11
+5. let factSum = 0 and j=1
+6. if j > i, go to step 9
+7. if remainder of i/j is 0, add j to factSum
+8. increment j by 1 and go to step 6
+9. if factSum is 2*i, PRINT i 
+10. increment i by 1 and go to step 4 
+11. Stop
+
+Program 6
+
+/*Perfect Numbers Till N, Exp 6
+  Woitiwe Simson, S2 CSE, 70,
+  5-2-25 */
+#include <stdio.h>
+
+void main() {
+    int N;
+    printf("Enter N: ");
+    scanf("%d", &N);
+    for (int i=1; i < N; ++i) {
+        int factSum=0;
+        for (int j=1; j <= i; j++) {
+            if (i%j == 0) {
+                factSum += j;
+            }
+        }
+        if (factSum == 2*i) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
+
+
+
+Algorithm 7
+
+1. Start 
+2. READ N 
+3. Initialize num=2, count=0;
+4. if count <= N, go to step 13 
+    5. let isprime=1 and i=2
+    6. if i > sqrt(num), go to step 10
+        7. if remainder of num / i is 0, set isprime=0
+        8. increment i by 1
+        9. go to step 6
+    10. if isprime is 1, print the num and increment count by 1
+    11. increment num by 1
+    12. go to step 4
+13. Stop
+
+Program 7
+
+/*N Prime Numbers, Exp 7
+  Woitiwe Simson, S2 CSE, 70,
+  5-2-25 */
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int N;
+    int count=0, num=2;
+    printf("Enter N: ");
+    scanf("%d", &N);
+    while (count < N) {
+        int isprime=1;
+        for (int i=2; i <= sqrt(num); i++) {
+            if (num%i == 0) {
+                isprime = 0;
+            }
+        }
+        if (isprime) {
+            printf("%d ", num);
+            count++;
+        }
+        num++;
+    }
+    printf("\n");
+    return 0;
+}
