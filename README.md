@@ -1,10 +1,7 @@
 # C Lab Problems 
 
-Questions are given in the following syntax:
-Qno. Question (concept used)
-
 ### Cycle 1
-##### Basics
+##### Basics of C
 7 questions
 
 1. Find the roots of a quadratic equation (if-else)
@@ -41,7 +38,7 @@ Qno. Question (concept used)
 ##### Functions
 6 questions
 
-20. Write a function to check if a number is prime and use it to display all primes in a matrix (functions and 2D arrays)
+20. Write a function to check if a number is prime and use it to display all primes in a matrix (functions and arrays)
 21. Write a recursive function to find factorial and use it to find nCr (functions)
 22. Write a function to check if a string is a palindrome and use it to display all paindromes in a sentence (functions and strings)
 23. Write a recursive function to find the binary equivalent of a decimal and use it to convert an array of decimals to binaries (functions and arrays)
@@ -64,7 +61,7 @@ Qno. Question (concept used)
 | 3.  | string comparison    | (int StringCompare(char* s1, char* s2)) |
 | 4.  | string concatenation | (void StringConcat(char* s1, char* s2)) |
 
-30. Write a program to find the 2nd largest in an array of integers using a command line argument (pointers) 
+30. Write a program to find the 2nd largest in an array of integers using a command line argument
 
 ### Cycle 6
 ##### File Handling
@@ -72,24 +69,20 @@ Qno. Question (concept used)
 
 31. Use command line arguments to copy the contents of one file to another after converting all lowercase characters to uppercase
 32. Implement the wc command from unix
-33. A text file named "*student.dat*" contains data in the following format: 
-
-| RegNo | Name | Mark 1 | Mark 2 | Mark 3 | Mark 4 | Mark 5 | Mark 6 |
-|-------|------|--------|--------|--------|--------|--------|--------|
-| 6     | 25   | 3      | 3      | 3      | 3      | 3      | 3      |
-
+33. A text file named "*student.dat*" contains data in the following format: \
+` RegNo | Name | Mark 1 | Mark 2 | Mark 3 | Mark 4 | Mark 5 | Mark 6 ` \
 Input a register number and display all the marks. Use a loop to continue asking for inputs
 
 34. An unformatted data file "num.dat" contains ints written with putw(). Write a program to display the numbers stored in the file and also display the numbers in ascending order
 35. You are given an unformatted file "stock.dat" containing the following information. \
 `Item_Code(char(5)), Item_Name(char(30)), Unit_Price(float), Qty_Stock(float)` \
-Write a C program to accept item_code and quantity_purchased of N items and display the bill in the following format: 
+Write a C program to accept item_code and quantity_purchased of N items and display the bill in the following format: \
 
 | Si.No | Item_Code | Item_Name | Unit_Price  | Quantity | Price |
 |-------|-----------|-----------|-------------|----------|-------|
 | 1.    |           |           |             |          |       |
 | 2.    |           |           |             |          |       |
-| ...   |           |           |             |          |       |
+| $\vdots$   |           |           |             |          |       |
 | N.    |           |           |             |          |       |
 |       |           |           | Total Price | :        |       |
 
