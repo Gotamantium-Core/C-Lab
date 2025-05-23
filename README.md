@@ -1,4 +1,4 @@
-# C Lab Problems 
+# Problems 
 
 ### Cycle 1
 ##### Basics of C
